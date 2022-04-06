@@ -7,8 +7,8 @@ jQuery(document).ready(function($){
     if( effect != '')
     {
         $('ul.products li.wcmi-has-gallery.sale').hover(function() {
-            $(this).find( '.woocommerce-LoopProduct-link span.onsale' ).hide();
-            $(this).find( '.woocommerce-LoopProduct-link img:first' ).hide();
+            // $(this).find( '.woocommerce-LoopProduct-link span.onsale' ).hide();
+            // $(this).find( '.woocommerce-LoopProduct-link img:first' ).hide();
         }, function() {
             $(this).find( '.woocommerce-LoopProduct-link span.onsale' ).show();
             $(this).find( '.woocommerce-LoopProduct-link img:first' ).show();
