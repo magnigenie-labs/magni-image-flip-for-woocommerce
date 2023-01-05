@@ -87,16 +87,16 @@ class Woo_Magni_Image {
                       .imgflipdots { text-align: right; left:-5px; top: -15px}
                       .imgfadedots { text-align: right; left:-5px; top: -15px}";
     }
-    // elseif ($dotposition == 'bottomleft') {
-    //   $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: 245px}
-    //                   .imgflipdots { text-align: left; left: 5px; top: 245px}
-    //                   .imgfadedots { text-align: left; left: 5px; top: 245px}";
-    // }
-    // elseif ($dotposition == 'bottomright') {
-    //   $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top: 245px}
-    //                   .imgflipdots { text-align: right; left:-5px; top: 245px}
-    //                   .imgfadedots { text-align: right; left:-5px; top: 245px}";
-    // }
+    elseif ($dotposition == 'bottomleft') {
+      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: 230px}
+                      .imgflipdots { text-align: left; left: 5px; top: 230px}
+                      .imgfadedots { text-align: left; left: 5px; top: 230px}";
+    }
+    elseif ($dotposition == 'bottomright') {
+      $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top: 230px}
+                      .imgflipdots { text-align: right; left:-5px; top: 230px}
+                      .imgfadedots { text-align: right; left:-5px; top: 230px}";
+    }
 
     wp_add_inline_style( 'magniimage-css', $custom_css );
     wp_enqueue_script( 'wcmi-jquery-cycle2', plugins_url( '/assets/js/jquery.cycle2.js', WOOMI_FILE ), array( 'jquery' ), '1.0.0', true  );

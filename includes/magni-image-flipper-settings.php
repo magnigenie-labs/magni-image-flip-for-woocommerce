@@ -80,8 +80,7 @@ class WC_Settings_Woo_Magni_Image extends WC_Settings_Page {
 					'desc' 		  => __( 'Choose the position of pager on image', 'woomi' ),
 					'id' 		  	=> 'woomi[dotposition]',
 					'type' 		  => 'select',
-				'options'	  => array( 'topleft' => 'Top Left', 'topright' => 'Top Right'),
-					// 'options'	  => array( 'topleft' => 'Top Left', 'topright' => 'Top Right', 'bottomleft' => 'Bottom Left', 'bottomright' => 'Bottom Right' ),
+					'options'	  => array( 'topleft' => 'Top Left', 'topright' => 'Top Right', 'bottomleft' => 'Bottom Left', 'bottomright' => 'Bottom Right' ),
 					'default' 	=> 'topleft',
 					'css' 		  => 'width: 150px;'
 				),
