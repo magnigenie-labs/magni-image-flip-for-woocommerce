@@ -76,7 +76,6 @@ class Woo_Magni_Image {
                     .imgfadedots span { color: $inactivecolor;}";
 
     $dotposition = $settings_array['dotposition'];
-
     if($dotposition == 'topleft') {
       $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: -15px}
                       .imgflipdots { text-align: left; left: 5px; top: -15px}
@@ -88,9 +87,9 @@ class Woo_Magni_Image {
                       .imgfadedots { text-align: right; left:-5px; top: -15px}";
     }
     elseif ($dotposition == 'bottomleft') {
-      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: 230px}
-                      .imgflipdots { text-align: left; left: 5px; top: 230px}
-                      .imgfadedots { text-align: left; left: 5px; top: 230px}";
+      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; bottom: -5px}
+                      .imgflipdots { text-align: left; left: 5px; bottom: -5px}
+                      .imgfadedots { text-align: left; left: 5px; bottom: -5px}";
     }
     elseif ($dotposition == 'bottomright') {
       $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top: 230px}
