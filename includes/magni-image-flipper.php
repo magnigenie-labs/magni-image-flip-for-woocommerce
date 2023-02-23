@@ -31,6 +31,9 @@ class Woo_Magni_Image {
       //Get the product images
       add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'woocommerce_template_product_thumbnails' ), 11 );
 
+      //product loop image for bottom pager position
+      add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+
       //Check if the product has a gallery
       add_filter( 'post_class', array( $this, 'product_has_gallery' ) );
 
@@ -39,6 +42,7 @@ class Woo_Magni_Image {
 
     }
 
+    
   /**
   *
   * Add necessary js and css files for the magni image effects
@@ -77,24 +81,24 @@ class Woo_Magni_Image {
 
     $dotposition = $settings_array['dotposition'];
     if($dotposition == 'topleft') {
-      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: -15px}
-                      .imgflipdots { text-align: left; left: 5px; top: -15px}
-                      .imgfadedots { text-align: left; left: 5px; top: -15px}";
+      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: -15px;}
+                      .imgflipdots { text-align: left; left: 5px; top: -15px;}
+                      .imgfadedots { text-align: left; left: 5px; top: -15px;}";
     }
     elseif ($dotposition == 'topright') {
-      $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top: -15px}
-                      .imgflipdots { text-align: right; left:-5px; top: -15px}
-                      .imgfadedots { text-align: right; left:-5px; top: -15px}";
+      $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top:-15px;}
+                      .imgflipdots { text-align: right; left:-5px; top: -15px;}
+                      .imgfadedots { text-align: right; left:-5px; top: -15px;}";
     }
     elseif ($dotposition == 'bottomleft') {
-      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; bottom: -5px}
-                      .imgflipdots { text-align: left; left: 5px; bottom: -5px}
-                      .imgfadedots { text-align: left; left: 5px; bottom: -5px}";
+      $custom_css .= ".imgsliderdots { text-align: left; left: 5px; top: unset; bottom:5px;}
+                      .imgflipdots { text-align: left; left: 5px; top: unset; bottom:5px;}
+                      .imgfadedots { text-align: left; left: 5px; top: unset; bottom:5px;}";
     }
     elseif ($dotposition == 'bottomright') {
-      $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top: 230px}
-                      .imgflipdots { text-align: right; left:-5px; top: 230px}
-                      .imgfadedots { text-align: right; left:-5px; top: 230px}";
+      $custom_css .= ".imgsliderdots { text-align: right; left:-5px; top: unset; bottom:5px;}
+                      .imgflipdots { text-align: right; left:-5px; top: unset; bottom:5px;}
+                      .imgfadedots { text-align: right; left:-5px; top: unset; bottom:5px;}";
     }
 
     wp_add_inline_style( 'magniimage-css', $custom_css );
@@ -187,14 +191,14 @@ class Woo_Magni_Image {
 
       if($settings['imgeffect'] == "flip") {
         $html .='<div class="flip-pager'.$pid.' imgflipdots" style="overflow: hidden; display: none;"></div><div class="cycle-slideshow productimgflip magni-box" data-cycle-fx=flipHorz data-cycle-timeout=0 data-cycle-pager=".flip-pager'.$pid.'" style="overflow: hidden; display: none;"
-          >'.$productimg.$prodgalleryimg.'</div>';
+          >'.$productimg.$prodgalleryimg.'</div></div>';
       }
       else if($settings['imgeffect'] == "fade") {
-        $html .='<div class="fade-pager'.$pid.' imgfadedots" style="overflow: hidden; display: none;"></div><div class="cycle-slideshow productimgfade magni-box" data-cycle-fx=fade data-cycle-timeout=0 data-cycle-pager=".fade-pager'.$pid.'" style="overflow: hidden; display: none;">'.$productimg.$prodgalleryimg.'</div>';
+        $html .='<div class="fade-pager'.$pid.' imgfadedots" style="overflow: hidden; display: none;"></div><div class="cycle-slideshow productimgfade magni-box" data-cycle-fx=fade data-cycle-timeout=0 data-cycle-pager=".fade-pager'.$pid.'" style="overflow: hidden; display: none;">'.$productimg.$prodgalleryimg.'</div></div>';
       }
       else if($settings['imgeffect'] == "slider") {
         $html .='<div class="slider-pager'.$pid.' imgsliderdots" style="overflow: hidden; display: none;"></div><div class="cycle-slideshow productimgslider magni-box" data-cycle-fx=scrollHorz data-cycle-timeout=0
-          data-cycle-pager=".slider-pager'.$pid.'" style="overflow: hidden; display: none;">'.$productimg.$prodgalleryimg.'</div>';
+          data-cycle-pager=".slider-pager'.$pid.'" style="overflow: hidden; display: none;">'.$productimg.$prodgalleryimg.'</div></div>';
       }
       echo $html;
     }
@@ -211,4 +215,21 @@ class Woo_Magni_Image {
         return $product->get_gallery_attachment_ids();
   }
 
+}
+
+if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
+
+  /**
+   * Get the product thumbnail for the loop.
+   */
+  function woocommerce_template_loop_product_thumbnail() {
+    $settings = get_option( 'woomi' );
+    if( $settings['enabled'] == "yes" ) {
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo "<div class='flip-bottom'>" . woocommerce_get_product_thumbnail();
+    } else {
+      echo woocommerce_get_product_thumbnail();
+    }
+
+  }
 }

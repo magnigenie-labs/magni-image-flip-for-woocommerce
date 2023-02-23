@@ -4,8 +4,8 @@ Tags: woocommerce,woocommerce addon,image flip, woocommerce image flip,image fli
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sales@magnigenie.com&item_name=Magni%20Image%20Flip%20For%20WooCommerce&return=http://magnigenie.com
 Requires at least: 4.0
 Requires PHP: 5.4
-Tested up to: 5.8
-Stable tag: 1.0
+Tested up to: 6.1.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -37,9 +37,14 @@ This plugin would help you to engage more customers by creating nice looking ima
 2. Frontend View.
 
 == Changelog ==
+
+= 1.1 =
+* Added: bottom left and bottom right Pager position.
+* Added: Correct .pot file added.
+
 = 1.0 =
 * Initial release.
 
 == Upgrade Notice ==
-= 1.0 =
-This is first version of our plugin. We will notify you when there is a update available.
+= 1.1 =
+This is the latest version of our plugin. Please take a backup before the update.

@@ -3,22 +3,22 @@
 /* CSS for cycle2 flip pagers*/
 
 .imgflipdots { position:absolute; width: 100%; z-index: 500; overflow: hidden; }
-.imgflipdots span { font-size: 40px; width: 12px; height: 12px; display: inline-block; color: #fff; }
+.imgflipdots span { font-size: 40px; width: 14px; height: 14px; display: inline-block; color: #fff; }
 .imgflipdots span.cycle-pager-active { color: #D69746;}
 .imgflipdots > * { cursor: pointer;}
 
 /* CSS for cycle2 fade pagers*/
 
 .imgfadedots { position:absolute; width: 100%; z-index: 500; overflow: hidden; }
-.imgfadedots span { font-size: 40px; width: 12px; height: 12px; display: inline-block; color: #fff; }
+.imgfadedots span { font-size: 40px; width: 14px; height: 14px; display: inline-block; color: #fff; }
 .imgfadedots span.cycle-pager-active { color: #D69746;}
 .imgfadedots > * { cursor: pointer;}
 
 /* CSS for cycle2 slider pagers*/
 
 .cycle-pager { display: block; }
-.imgsliderdots { position:absolute; width: 100%; z-index: 500; overflow: hidden; }
-.imgsliderdots span { font-size: 40px; width: 12px; height: 12px; display: inline-block; color: #fff; }
+.imgsliderdots { position:absolute; width: 100%; z-index: 500; overflow: hidden;}
+.imgsliderdots span { font-size: 40px; width: 14px; height: 14px; display: inline-block; color: #fff; }
 .imgsliderdots span.cycle-pager-active { color: #D69746;}
 .imgsliderdots > * { cursor: pointer;}
 
@@ -42,4 +42,10 @@
 
 .recurrent{
   display: block;
+}
+.flip-bottom {
+  position: relative;
+}
+.wcmi-has-gallery .flip-bottom img {
+    width:100%;
 }
